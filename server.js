@@ -7,36 +7,44 @@ const PORT = process.env.PORT || 3000;
 const data = (fs.readFileSync('./resources/cymbals.json')).toString();
 const jsonData = JSON.parse(data);
 const cymbalData = [...jsonData.cymbals];
-console.log(cymbalData);
+
+app.use(express.static(__dirname));
+app.use(express.json());
+
 
 app.post('/filter', (req, res) => {
-    const { brightness, dryness, definition, sustain, thickness, bellWidth } = req.body;
+    const { brightness, dryness, definition, sustain, thickness, bellWidth, bellHeight,
+        hammering, complexity, holes, effect, size} = req.body;
 
-    const filteredData = applyFilters({brightness, dryness, definition, sustain, thickness, bellWidth});
+    const filteredData = applyFilters({brightness, dryness, definition, sustain, thickness,
+        bellWidth, bellHeight, hammering, complexity, holes, effect, size});
     res.json(filteredData);
 });
 
 function applyFilters(filters) {
-    let filteredData = cymbalData;
 
-    if (filters.brightness) {
-        filteredData = filteredData.filter(item => item.Brightness >= filters.brightness[0] && item.Brightness <= filters.brightness[1]);
-    }
-    if (filters.dryness) {
-        filteredData = filteredData.filter(item => item.Dryness >= filters.dryness[0] && item.Dryness <= filters.dryness[1]);
-    }
-    if (filters.definition) {
-        filteredData = filteredData.filter(item => item.Definitie >= filters.definition[0] && item.Definitie <= filters.definition[1]);
-    }
-    if (filters.sustain) {
-        filteredData = filteredData.filter(item => item.Sustain >= filters.sustain[0] && item.Sustain <= filters.sustain[1]);
-    }
-    if (filters.thickness) {
-        filteredData = filteredData.filter(item => item.Dikte >= filters.thickness[0] && item.Dikte <= filters.thickness[1]);
-    }
-    if (filters.bellWidth) {
-        filteredData = filteredData.filter(item => item.Belbreedte >= filters.bellWidth[0] && item.Belbreedte <= filters.bellWidth[1]);
-    }
+    const { brightness, dryness, definition, sustain, thickness, bellWidth, bellHeight,
+        hammering, complexity, holes, effect, size} = filters;
+
+    const filteredData = cymbalData.filter(item => {
+        const matchesBrightness = (item.Brightness !== undefined && item.Brightness === brightness) || brightness === 0;
+        const matchesDryness = (item.Dryness !== undefined && item.Dryness === dryness) || dryness === 0;
+        const matchesDefinition = (item.Definitie !== undefined && item.Definitie === definition) || definition === 0;
+        const matchesSustain = (item.Sustain !== undefined && item.Sustain === sustain) || sustain === 0;
+        const matchesThickness = (item.Dikte !== undefined && item.Dikte === thickness) || thickness === 0;
+        const matchesBellWidth = (item.Belbreedte !== undefined && item.Belbreedte === bellWidth) || bellWidth === 0;
+        const matchesBellHeight = (item.Belhoogte !== undefined && item.Belhoogte === bellHeight) || bellHeight === 0;
+        const matchesHammering = (item.Hamering !== undefined && item.Hamering === hammering) || hammering === 0;
+        const matchesComplexity = (item.Complexiteit !== undefined && item.Complexiteit === complexity) || complexity === 0;
+        const matchesHoles = (item.Gaten !== undefined && item.Gaten === holes);
+        const matchesEffect = (item.Effectcymbaal !== undefined && item.Effectcymbaal === holes);
+        const matchesSize = (item.hasOwnProperty(size)) || size === "0";
+
+        return matchesBrightness && matchesDryness && matchesDefinition &&
+            matchesSustain && matchesThickness && matchesBellWidth && matchesBellHeight &&
+            matchesHammering && matchesComplexity && matchesHoles && matchesEffect && matchesSize;
+    });
+
     return filteredData;
 }
 
