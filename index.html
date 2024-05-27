@@ -126,6 +126,16 @@
         updateSliderValue('bellWidth', 'bellWidth-value')
         updateSliderValue('complexity', 'complexity-value');
 
+        let cymbalData = [];
+
+        fetch('./resources/cymbalsLatest.json')
+            .then(response => response.json())
+            .then(data => {
+                cymbalData = data.cymbals;
+                console.log(data.cymbals);
+            })
+            .catch(error => console.error('Error:', error));
+
         filterBtn.addEventListener('click', () => {
             // Get filter values from sliders
             const brightness = parseInt(document.getElementById('brightness').value);
@@ -139,9 +149,6 @@
             const holes = document.getElementById('holes').checked ? "ja" : "nee";
             const effect = document.getElementById('effect').checked ? "ja" : "nee";
             const size = document.getElementById('size').value;
-
-            console.log(size)
-
 
             // Prepare filter object
             const filters = {
@@ -157,34 +164,45 @@
                 size
             };
 
-            // Send filter values to backend
-            fetch('/filter', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(filters)
-            })
-                .then(response => response.json())
-                .then(data => {
-                    // Display filtered data
-                    resultsDiv.innerHTML = "";
-                    data.forEach(item => {
-                        const itemDiv = document.createElement('div');
-                        itemDiv.className = 'result-item';
-                        itemDiv.innerHTML = `
-                        <strong>Name:</strong> ${item.Cymbalname}<br>
-                        <strong>Type:</strong> ${item.Cymbaltype}<br>
-                        <strong>Image:</strong> <img src="${item.image}" alt="placeholder" width="100"><br>
-                        <strong>Link:</strong> <a href="${item.Hyperlink}" target="_blank">Luister hier</a>
-                        <p>-----------------------------------------------------------</p>
-                    `;
-                        resultsDiv.appendChild(itemDiv);
-                    });
-                })
-                .catch(error => console.error('Error:', error));
+            const filteredData = applyFilters(filters, cymbalData);
+
+            // Display filtered data
+            resultsDiv.innerHTML = "";
+            filteredData.forEach(item => {
+                const itemDiv = document.createElement('div');
+                itemDiv.className = 'result-item';
+                itemDiv.innerHTML = `
+                    <strong>Name:</strong> ${item.Cymbalname}<br>
+                    <strong>Type:</strong> ${item.Cymbaltype}<br>
+                    <strong>Image:</strong> <img src="${item.image}" alt="placeholder" width="100"><br>
+                    <strong>Link:</strong> <a href="${item.Hyperlink}" target="_blank">Luister hier</a>
+                    <p>---------------------</p>
+                `;
+                resultsDiv.appendChild(itemDiv);
+            });
         });
-    });
+
+        function applyFilters(filters, cymbalData) {
+            const { brightness, dryness, definition, sustain, thickness, bellWidth, complexity, holes, effect, size } = filters;
+
+            return cymbalData.filter(item => {
+                const matchesBrightness = (item.Brightness !== undefined && item.Brightness === brightness) || brightness === 0;
+                const matchesDryness = (item.Dryness !== undefined && item.Dryness === dryness) || dryness === 0;
+                const matchesDefinition = (item.Definitie !== undefined && item.Definitie === definition) || definition === 0;
+                const matchesSustain = (item.Sustain !== undefined && item.Sustain === sustain) || sustain === 0;
+                const matchesThickness = (item.Dikte !== undefined && item.Dikte === thickness) || thickness === 0;
+                const matchesBellWidth = (item.Belbreedte !== undefined && item.Belbreedte === bellWidth) || bellWidth === 0;
+                const matchesComplexity = (item.Complexiteit !== undefined && item.Complexiteit === complexity) || complexity === 0;
+                const matchesHoles = holes === "nee" || (item.Gaten !== undefined && item.Gaten === 'ja');
+                const matchesEffect = effect === "nee" || (item.Effectcymbaal !== undefined && item.Effectcymbaal === 'ja');
+                const matchesSize = item.hasOwnProperty(size) || size === "0";
+
+                return matchesBrightness && matchesDryness && matchesDefinition &&
+                    matchesSustain && matchesThickness && matchesBellWidth &&
+                     matchesComplexity && matchesHoles && matchesEffect && matchesSize;
+            });
+        }
+    })
 </script>
 </body>
 </html>
