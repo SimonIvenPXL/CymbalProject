@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-<img src="./resources/Zildjan%20guide%20bovenaan.jpg" alt="Zildjian Cymbal Guide" style="display: block; margin: 0 auto; width: 80%; max-width: 600px;">
+<img src="./resources/Zildjan_Banner_6.jpg" alt="Zildjian Cymbal Guide" style="display: block; margin: 0 auto; width: 60%;">
 <div id="encapsulated">
-<h1>Zildjian Cymbal Guide</h1>
+    <br/>
+    <a href="https://hogeschoolpxl-my.sharepoint.com/:b:/g/personal/12101779_student_pxl_be/EUfr7EEerbFCmiNvOq8StGsBVx2pyNnoOOXYDWdWYV879w?e=shFTt5"
+       target="_blank"><button id="goToPageBtn">Klik hier voor de cymbal guide</button></a>
 
 <button id="toggleFiltersBtn">Show Filters</button>
-
 <!-- Sliders container -->
     <div id="sliders" style="display: none;">
         <h3 style="text-align: center">DISCLAIMER: ALS EEN FILTER OP 0 STAAT MAG DEZE GENEGEERD WORDEN. HET IS BEST OM TE BEGINNEN MET 2-3 FILTERS,
@@ -68,6 +69,10 @@
             <label for="effect">Effectcymbaal:</label>
             <input type="checkbox" id="effect">
         </div>
+        <div class="checkbox-container">
+            <label for="ride">Ridecymbaal:</label>
+            <input type="checkbox" id="ride">
+        </div>
         <br/>
     </div>
 
@@ -92,10 +97,6 @@
     <br/>
     <!-- Filter button -->
     <button id="filterBtn">Apply Filters</button>
-    <br/>
-    <br/>
-    <a href="https://hogeschoolpxl-my.sharepoint.com/:b:/g/personal/12101779_student_pxl_be/EUfr7EEerbFCmiNvOq8StGsBVx2pyNnoOOXYDWdWYV879w?e=shFTt5"
-       target="_blank"><button id="goToPageBtn">More info</button></a>
 
     <!-- Results container -->
     <div id="results"></div>
@@ -128,6 +129,18 @@
             })
             .catch(error => console.error('Error:', error));
 
+        function getYouTubeEmbedURL(url) {
+            let embedURL = "";
+            if (url.includes("playlist")) {
+                const playlistId = url.split("list=")[1];
+                embedURL = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+            } else {
+                const videoId = url.split("v=")[1];
+                embedURL = `https://www.youtube.com/embed/${videoId}`;
+            }
+            return embedURL;
+        }
+
         filterBtn.addEventListener('click', () => {
             // Get filter values from sliders
             const brightness = parseInt(document.getElementById('brightness').value);
@@ -140,6 +153,7 @@
 
             const holes = document.getElementById('holes').checked ? "ja" : "nee";
             const effect = document.getElementById('effect').checked ? "ja" : "nee";
+            const ride = document.getElementById('ride').checked ? "ja" : "nee";
             const size = document.getElementById('size').value;
 
             // Prepare filter object
@@ -153,6 +167,7 @@
                 complexity,
                 holes,
                 effect,
+                ride,
                 size
             };
 
@@ -163,18 +178,20 @@
             filteredData.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'result-item';
+                const embedURL = getYouTubeEmbedURL(item.Hyperlink);
                 itemDiv.innerHTML = `
-                    <strong>Name:</strong> ${item.Cymbalname}<br>
-                    <strong>Type:</strong> ${item.Cymbaltype}<br>
-                    <strong>Image:</strong> <img src="${item.image}" alt="placeholder" width="100"><br>
-                    <strong>Link:</strong> <a href="${item.Hyperlink}" target="_blank">Luister hier</a>
-                `;
+            <strong>Name:</strong> ${item.Cymbalname}<br>
+            <strong>Type:</strong> ${item.Cymbaltype}<br>
+            <strong>Image:</strong> <img src="${item.image}" alt="placeholder" width="100"><br>
+            <iframe width="560" height="315" src="${embedURL}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>---------------------</p>
+        `;
                 resultsDiv.appendChild(itemDiv);
             });
         });
 
         function applyFilters(filters, cymbalData) {
-            const { brightness, dryness, definition, sustain, thickness, bellWidth, complexity, holes, effect, size } = filters;
+            const { brightness, dryness, definition, sustain, thickness, bellWidth, complexity, holes, effect, ride, size } = filters;
 
             return cymbalData.filter(item => {
                 const matchesBrightness = brightness === 0 || (item.Brightness !== undefined && item.Brightness >= Math.max(1, brightness - 1) && item.Brightness <= brightness + 1);
@@ -186,11 +203,12 @@
                 const matchesComplexity = complexity === 0 || (item.Complexiteit !== undefined && item.Complexiteit >= Math.max(1, complexity - 1) && item.Complexiteit <= complexity + 1);
                 const matchesHoles = holes === "nee" || (item.Gaten !== undefined && item.Gaten === 'ja');
                 const matchesEffect = effect === "nee" || (item.Effectcymbaal !== undefined && item.Effectcymbaal === 'ja');
+                const matchesRide = ride === "nee" || (item.Cymbaltype !== undefined && item.Cymbaltype === 'Ride');
                 const matchesSize = item.hasOwnProperty(size) || size === "0";
 
                 return matchesBrightness && matchesDryness && matchesDefinition &&
                     matchesSustain && matchesThickness && matchesBellWidth &&
-                    matchesComplexity && matchesHoles && matchesEffect && matchesSize;
+                    matchesComplexity && matchesHoles && matchesEffect && matchesSize && matchesRide;
             });
         }
     });

@@ -1,7 +1,6 @@
 /* General styles */
 body {
     font-family: Arial, sans-serif;
-    color: #333;
     margin: 0;
     padding: 20px;
 }
@@ -29,7 +28,7 @@ h1 {
     width: 200px;
     margin: 20px auto;
     padding: 10px;
-    background-color: #00509e;
+    background-color: #C39861;
     color: white;
     border: none;
     border-radius: 5px;
@@ -38,20 +37,22 @@ h1 {
 }
 
 #toggleFiltersBtn:hover {
-    background-color: #003f7d;
+    background-color: #917148;
 }
 
 #encapsulated {
-    background-color: #d0e7f9;
+    background-color: black;
     width: 60%;
     margin-left: 20%;
 }
+
 
 #sliders, #checkboxes, .dropdown-container {
     margin: 20px auto;
     width: 80%;
     display: flex;
     justify-content: space-between;
+    color: white;
 }
 
 .left-column, .right-column {
@@ -64,7 +65,7 @@ h1 {
 
 label {
     font-weight: bold;
-    color: #333;
+    color: white;
 }
 
 input[type="range"] {
@@ -80,7 +81,7 @@ span {
 
 p {
     margin: 5px 0 15px;
-    color: #555;
+    color: white;
     font-size: 0.9em;
 }
 
@@ -97,7 +98,7 @@ p {
     width: 200px;
     margin: 20px auto;
     padding: 10px;
-    background-color: #00509e;
+    background-color: #C39861;
     color: white;
     border: none;
     border-radius: 5px;
@@ -106,7 +107,7 @@ p {
 }
 
 #filterBtn:hover, #goToPageBtn:hover {
-    background-color: #003f7d;
+    background-color: #917148;
 }
 
 #results {
@@ -114,17 +115,23 @@ p {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+    color: black;
 }
 
 .result-item {
-    background-color: #fffacd;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    padding: 15px;
-    margin: 10px;
-    width: 200px;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Take the full width available */
+    max-width: 560px; /* Set a max-width to match the video width */
+    margin: 20px auto; /* Center the result-item div */
+    background-color: lightyellow; /* Your existing style */
+    padding: 10px; /* Optional padding */
+    border: 1px solid #ccc; /* Optional border */
 }
+
+.result-item iframe {
+    width: 100%;
+    height: 315px; /* Maintain the aspect ratio */
+}
+
 
 .result-item img {
     margin-top: 10px;
