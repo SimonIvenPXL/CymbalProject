@@ -181,9 +181,14 @@
                 itemDiv.className = 'result-item';
                 const embedURL = getYouTubeEmbedURL(item.Hyperlink);
                 itemDiv.innerHTML = `
+            <div style="float: left">
             <strong>Name:</strong> ${item.Cymbalname}<br>
             <strong>Type:</strong> ${item.Cymbaltype}<br>
-            <strong>Image:</strong> <img src="${item.image}" alt="placeholder" width="100"><br>
+            </div>
+            <div style="float: right">
+            <strong>Image:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
+            </div>
+            <br>
             <iframe width="560" height="315" src="${embedURL}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
             <p>---------------------</p>
         `;
