@@ -141,8 +141,9 @@
                     console.log("ID: " + playlistId);
                 } else {
                     const videoId = url.split("v=")[1];
-                    embedURL = `https://www.youtube.com/embed/${videoId}`;
-                    console.log("ID: " + videoId);
+                    const correctId = videoId.split("&")[0];
+                    embedURL = `https://www.youtube.com/embed/${correctId}`;
+                    console.log("ID: " + correctId);
                 }
             } else if (url.includes("youtu.be")) {
                 const vidID = url.split("youtu.be\/")[1];
