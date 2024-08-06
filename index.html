@@ -19,6 +19,8 @@
     <div id="sliders" style="display: none;">
         <h3 style="text-align: center">DISCLAIMER: ALS EEN FILTER OP 0 STAAT MAG DEZE GENEGEERD WORDEN. HET IS BEST OM TE BEGINNEN MET 2-3 FILTERS,
             OM DAN NAAR MEER FILTERS UIT TE BREIDEN ALS HET AANTAL OPTIES TE GROOT IS.</h3>
+        <h3 style="text-align: center">DISCLAIMER: SOMMIGE CYMBALEN HEBBEN EEN PLAYLIST VAN VIDEOS VOOR VERSCHILLENDE MATEN VAN
+        DESBETREFFENDE CYMBAAL. INDIEN NIET DE MAAT NAAR VOORKEUR, KIJK VERDER IN DE PLAYLIST DOOR OP "VOLGENDE VIDEO" TE KLIKKEN.</h3>
         <div style="float: left; margin-right: 50px">
             <div class="slider-container">
                 <label for="brightness">Brightness:</label>
@@ -179,11 +181,57 @@
             filteredData.forEach(item => {
                 const itemDiv = document.createElement('div');
                 itemDiv.className = 'result-item';
+
+                let matenArray = [];
+                if (item["13"] === "x") {
+                    matenArray.push("13");
+                }
+                if (item["14"] === "x") {
+                    matenArray.push("14");
+                }
+                if (item["15"] === "x") {
+                    matenArray.push("15");
+                }
+                if (item["16"] === "x") {
+                    matenArray.push("16");
+                }
+                if (item["17"] === "x") {
+                    matenArray.push("17");
+                }
+                if (item["18"] === "x") {
+                    matenArray.push("18");
+                }
+                if (item["19"] === "x") {
+                    matenArray.push("19");
+                }
+                if (item["20"] === "x") {
+                    matenArray.push("20");
+                }
+                if (item["21"] === "x") {
+                    matenArray.push("21");
+                }
+                if (item["22"] === "x") {
+                    matenArray.push("22");
+                }
+                if (item["23"] === "x") {
+                    matenArray.push("23");
+                }
+                if (item["24"] === "x") {
+                    matenArray.push("24");
+                }
+                if (item["25"] === "x") {
+                    matenArray.push("25");
+                }
+                if (item["26"] === "x") {
+                    matenArray.push("26");
+                }
+
                 const embedURL = getYouTubeEmbedURL(item.Hyperlink);
                 itemDiv.innerHTML = `
             <div style="float: left">
             <strong>Name:</strong> ${item.Cymbalname}<br>
             <strong>Type:</strong> ${item.Cymbaltype}<br>
+            <strong>Beschikbare maten:</strong> ${matenArray}<br/>
             </div>
             <div style="float: right">
             <strong>Image:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
