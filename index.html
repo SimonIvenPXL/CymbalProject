@@ -235,12 +235,20 @@
                     matenArray.push("26");
                 }
 
+                let matenString = "";
+                if (matenArray.length > 1) {
+                    for (let i = 0; i < matenArray.length - 1; i++) {
+                        matenString += matenArray[i] + '" - ';
+                    }
+                }
+                matenString += matenArray[matenArray.length - 1] + '"';
+
                 const embedURL = getYouTubeEmbedURL(item.Hyperlink);
                 itemDiv.innerHTML = `
             <div style="float: left">
             <strong>Name:</strong> ${item.Cymbalname}<br>
             <strong>Type:</strong> ${item.Cymbaltype}<br>
-            <strong>Beschikbare maten:</strong> ${matenArray}<br/>
+            <strong>Beschikbare maten:</strong> ${matenString} <br/>
             </div>
             <div style="float: right">
             <strong>Image:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
