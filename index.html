@@ -134,12 +134,20 @@
 
         function getYouTubeEmbedURL(url) {
             let embedURL = "";
-            if (url.includes("playlist")) {
-                const playlistId = url.split("list=")[1];
-                embedURL = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
-            } else {
-                const videoId = url.split("v=")[1];
-                embedURL = `https://www.youtube.com/embed/${videoId}`;
+            if (url.includes("youtube.com")) {
+                if (url.includes("playlist")) {
+                    const playlistId = url.split("list=")[1];
+                    embedURL = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+                    console.log("ID: " + playlistId);
+                } else {
+                    const videoId = url.split("v=")[1];
+                    embedURL = `https://www.youtube.com/embed/${videoId}`;
+                    console.log("ID: " + videoId);
+                }
+            } else if (url.includes("youtu.be")) {
+                const vidID = url.split("youtu.be\/")[1];
+                embedURL = `https://www.youtube.com/embed/${vidID}`
+                console.log("ID: " + vidID);
             }
             return embedURL;
         }
