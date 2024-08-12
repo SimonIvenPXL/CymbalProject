@@ -1,9 +1,11 @@
 /* General styles */
 body {
-    font-family: Arial, sans-serif;
+    font-family: Archivo, sans-serif;
     margin: 0;
     padding: 20px;
 }
+
+
 
 body::before {
     content: "";
