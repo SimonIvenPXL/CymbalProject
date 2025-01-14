@@ -17,7 +17,7 @@
     <a href="https://hogeschoolpxl-my.sharepoint.com/:b:/g/personal/12101779_student_pxl_be/ERBqO2vxY7dEiUL50kVN0t4Bz2wFWckJQW86Jw5qL-axlg?e=h89dF4"
        target="_blank"><button id="goToPageBtn"><strong>KLIK HIER VOOR CYMBAL GUIDE</strong></button></a>
 
-<button id="toggleFiltersBtn">Show Filters</button>
+<button id="toggleFiltersBtn">Toon filters</button>
 <!-- Sliders container -->
     <div id="sliders" style="display: none;">
         <h3 style="text-align: center"><span style="color: #C39861">DISCLAIMER:</span> EEN FILTER OP 0 WORDT NIET TOEGEPAST. BEGIN MET 2-3 FILTERS EN VOEG MEER TOE BIJ EEN TE GROTE HOEVEELHEID RESULTATEN</h3>
@@ -30,7 +30,7 @@
                 <p>Het karakter van de cymbaal, van laag in pitch en donker tot hoog in pitch en bright</p>
             </div>
             <div class="slider-container">
-                <label for="dryness">Dryness:</label>
+                <label for="dryness">Droogheid:</label>
                 <input type="range" id="dryness" min="0" max="10" value="0">
                 <p>Hoe droger de cymbaal, hoe minder bovetonen (hangt vaak samen met sustain)</p>
             </div>
@@ -42,7 +42,7 @@
             <div class="slider-container">
                 <label for="sustain">Sustain:</label>
                 <input type="range" id="sustain" min="0" max="10" value="0">
-                <p>De lengte van de sustain</p>
+                <p>De lengte van de sustain.</p>
             </div>
         </div>
         <div style="float: left; margin-right: 50px">
@@ -51,7 +51,7 @@
                 <input type="range" id="thickness" min="0" max="7" value="0">
             </div>
             <div class="slider-container">
-                <label for="bellWidth">Belbreedte:</label>
+                <label for="bellWidth">Belmaat:</label>
                 <input type="range" id="bellWidth" min="0" max="5" value="0">
                 <p>Natuurlijk volume van de cymbaal</p>
             </div>
@@ -83,9 +83,9 @@
 
     <!-- Dropdown for size filter -->
     <div class="dropdown-container">
-        <label for="size">Size:</label>
+        <label for="size">Maat van de cymbaal:</label>
         <select id="size">
-            <option value="0">Select Size</option>
+            <option value="0">Selecteer maat</option>
             <option value="14">14"</option>
             <option value="15">15"</option>
             <option value="16">16"</option>
@@ -101,7 +101,7 @@
     </div>
     <br/>
     <!-- Filter button -->
-    <button id="filterBtn">Apply Filters</button>
+    <button id="filterBtn">Pas filters toe</button>
 
     <!-- Results container -->
     <div id="results"></div>
@@ -248,12 +248,12 @@
                 const embedURL = getYouTubeEmbedURL(item.Hyperlink);
                 itemDiv.innerHTML = `
             <div style="float: left">
-            <strong>Name:</strong> ${item.Cymbalname}<br>
+            <strong>Naam:</strong> ${item.Cymbalname}<br>
             <strong>Type:</strong> ${item.Cymbaltype}<br>
             <strong>Beschikbare maten:</strong> ${matenString} <br/>
             </div>
             <div style="float: right">
-            <strong>Image:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
+            <strong>Afbeelding:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
             </div>
             <br>
             <iframe width="560" height="315" src="${embedURL}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
