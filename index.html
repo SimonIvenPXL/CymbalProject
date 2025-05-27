@@ -4,287 +4,314 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Zildjian Cymbal Guide</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles2.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
 </head>
-<body>
-<img src="./resources/Zildjan_Banner_6.jpg" alt="Zildjian Cymbal Guide" style="display: block; margin: 0 auto; width: 60%;">
-<br/>
-<div id="encapsulated">
-    <br/>
-    <a href="https://hogeschoolpxl-my.sharepoint.com/:b:/g/personal/12101779_student_pxl_be/ERBqO2vxY7dEiUL50kVN0t4Bz2wFWckJQW86Jw5qL-axlg?e=5GAHxB"
-       target="_blank"><button id="goToPageBtn"><strong>KLIK HIER VOOR CYMBAL GUIDE!</strong></button></a>
-
-<button id="toggleFiltersBtn">Toon filters</button>
-<!-- Sliders container -->
-    <div id="sliders" style="display: none;">
-        <h3 style="text-align: center"><span style="color: #C39861">DISCLAIMER:</span> EEN FILTER OP 0 WORDT NIET TOEGEPAST. BEGIN MET 2-3 FILTERS EN VOEG MEER TOE BIJ EEN TE GROTE HOEVEELHEID RESULTATEN.</h3>
-        <h3 style="text-align: center"><span style="color: #C39861">DISCLAIMER:</span> SOMMIGE CYMBALEN HEBBEN EEN PLAYLIST VAN VIDEOS VOOR VERSCHILLENDE MATEN VAN
-        DESBETREFFENDE CYMBAAL. INDIEN NIET DE MAAT NAAR VOORKEUR, KIJK VERDER IN DE PLAYLIST DOOR OP "VOLGENDE VIDEO" TE KLIKKEN.</h3>
-        <div style="float: left; margin-right: 50px">
-            <div class="slider-container">
-                <label for="brightness">Brightness:</label>
-                <input type="range" id="brightness" min="0" max="10" value="0">
-                <p>Het karakter van de cymbaal, van laag in pitch en donker tot hoog in pitch en bright.</p>
-            </div>
-            <div class="slider-container">
-                <label for="dryness">Droogheid:</label>
-                <input type="range" id="dryness" min="0" max="10" value="0">
-                <p>Hoe droger de cymbaal, hoe minder bovetonen (hangt vaak samen met sustain).</p>
-            </div>
-            <div class="slider-container">
-                <label for="definition">Definitie:</label>
-                <input type="range" id="definition" min="0" max="10" value="0">
-                <p>Van zacht en boterig tot solide en gedefinieerd.</p>
-            </div>
-            <div class="slider-container">
-                <label for="sustain">Sustain:</label>
-                <input type="range" id="sustain" min="0" max="10" value="0">
-                <p>De lengte van de sustain.</p>
-            </div>
-        </div>
-        <div style="float: left; margin-right: 50px">
-            <div class="slider-container">
-                <label for="thickness">Dikte:</label>
-                <input type="range" id="thickness" min="0" max="7" value="0">
-            </div>
-            <div class="slider-container">
-                <label for="bellWidth">Belmaat:</label>
-                <input type="range" id="bellWidth" min="0" max="5" value="0">
-                <p>Natuurlijk volume van de cymbaal.</p>
-            </div>
-            <div class="slider-container">
-                <label for="complexity">Complexiteit:</label>
-                <input type="range" id="complexity" min="0" max="5" value="0">
-                <p>Hoe complex is het boventoonnetwerk van de cymbaal.</p>
-            </div>
-        </div>
-    </div>
-
-    <!-- Checkbox container -->
-    <div id="checkboxes">
-        <div class="checkbox-container">
-            <label for="holes">Gaten:</label>
-            <input type="checkbox" id="holes">
-        </div>
-        <br/>
-        <div class="checkbox-container">
-            <label for="effect">Effectcymbaal:</label>
-            <input type="checkbox" id="effect">
-        </div>
-        <div class="checkbox-container">
-            <label for="ride">Ridecymbaal:</label>
-            <input type="checkbox" id="ride">
-        </div>
-        <br/>
-    </div>
-
-    <!-- Dropdown for size filter -->
-    <div class="dropdown-container">
-        <label for="size">Maat van de cymbaal:</label>
-        <select id="size">
-            <option value="0">Selecteer maat</option>
-            <option value="14">14"</option>
-            <option value="15">15"</option>
-            <option value="16">16"</option>
-            <option value="17">17"</option>
-            <option value="18">18"</option>
-            <option value="19">19"</option>
-            <option value="20">20"</option>
-            <option value="21">21"</option>
-            <option value="22">22"</option>
-            <option value="23">23"</option>
-            <option value="24">24"</option>
-        </select>
-    </div>
-    <br/>
-    <!-- Filter button -->
-    <button id="filterBtn">Pas filters toe</button>
-
-    <!-- Results container -->
-    <div id="results"></div>
+<body class="page-body">
+<div class="hero">
+    <img src="./resources/Zildjan_Banner_6.jpg" alt="Zildjian Cymbal Guide" style="display: block; margin: 0 auto; width: 60%;">
+    <h1 style="text-align: center">Selecteer het perfecte bekken voor jouw sound</h1>
+    <p>Deze cymbaalselector helpt drummers en muziekwinkels om
+        op basis van objectieve kenmerken en persoonlijke voorkeuren
+        het meest geschikte Zildjian-bekken te vinden.
+        Eenvoudig, efficiënt en onderbouwd</p>
 </div>
+<div>
+    <div>
+        <a href="https://hogeschoolpxl-my.sharepoint.com/:b:/g/personal/12101779_student_pxl_be/ERBqO2vxY7dEiUL50kVN0t4Bz2wFWckJQW86Jw5qL-axlg?e=5GAHxB"
+           target="_blank"><button class="cta_cymbal_guide" id="goToPageBtn"><strong>KLIK HIER VOOR CYMBAL GUIDE!</strong></button></a>
+    </div>
+    <div id="encapsulated">
+        <div id="sliders">
+            <div style="float: left; margin-right: 50px">
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="brightness">Brightness:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="brightness" min="0" max="10" value="0">
+                    <p>Het karakter van de cymbaal, van laag in pitch en donker tot hoog in pitch en bright.</p>
+                </div>
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="dryness">Droogte:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="dryness" min="0" max="10" value="0">
+                    <p>Hoe droger de cymbaal, hoe minder bovetonen (hangt vaak samen met sustain).</p>
+                </div>
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="definition">Definitie:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="definition" min="0" max="10" value="0">
+                    <p>Van zacht en boterig tot solide en gedefinieerd.</p>
+                </div>
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="sustain">Sustain:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="sustain" min="0" max="10" value="0">
+                    <p>De lengte van de sustain.</p>
+                </div>
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="thickness">Dikte:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="thickness" min="0" max="7" value="0">
+                    <p>De dikte van de cymbaal</p>
+                </div>
+                <div class="slider_container">
+                    <div class="slider_toprow">
+                        <label class="slider-label" for="bellWidth">Belmaat:</label>
+                    </div>
+                    <input class="slider-track" type="range" id="bellWidth" min="0" max="5" value="0">
+                    <p>Natuurlijk volume van de cymbaal.</p>
+                </div>
+                <!--            <div class="slider-container">-->
+                <!--                <label for="complexity">Complexiteit:</label>-->
+                <!--                <input type="range" id="complexity" min="0" max="5" value="0">-->
+                <!--                <p>Hoe complex is het boventoonnetwerk van de cymbaal.</p>-->
+                <!--            </div>-->
+            </div>
+        </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
-        const slidersDiv = document.getElementById('sliders');
-        const filterBtn = document.getElementById('filterBtn');
-        const resultsDiv = document.getElementById('results');
+        <!-- Checkbox container -->
+        <div id="checkboxes">
+<!--            <div class="checkbox-container">-->
+<!--                <label for="holes">Gaten:</label>-->
+<!--                <input type="checkbox" id="holes">-->
+<!--            </div>-->
 
-        toggleFiltersBtn.addEventListener('click', () => {
-            if (slidersDiv.style.display === 'none') {
-                slidersDiv.style.display = 'block';
-                toggleFiltersBtn.textContent = 'Verberg Filters';
-            } else {
-                slidersDiv.style.display = 'none';
-                toggleFiltersBtn.textContent = 'Toon Filters';
-            }
-        });
+            <div class="checkbox-group crash">
+                <input type="checkbox" id="effect" name="crash">
+                <label for="effect" class="checkbox-label">Crash</label>
+            </div>
 
-        let cymbalData = [];
+            <div class="checkbox-group ride">
+                <input type="checkbox" id="ride" name="ride">
+                <label for="ride" class="checkbox-label">Ride</label>
+            </div>
 
-        fetch('./resources/cymbalsLatest.json')
-            .then(response => response.json())
-            .then(data => {
-                cymbalData = data.cymbals;
-                console.log(data.cymbals);
-            })
-            .catch(error => console.error('Error:', error));
+            <br/>
+        </div>
 
-        function getYouTubeEmbedURL(url) {
-            let embedURL = "";
-            if (url.includes("youtube.com")) {
-                if (url.includes("playlist")) {
-                    const playlistId = url.split("list=")[1];
-                    embedURL = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
-                    console.log("ID: " + playlistId);
-                } else {
-                    const videoId = url.split("v=")[1];
-                    const correctId = videoId.split("&")[0];
-                    embedURL = `https://www.youtube.com/embed/${correctId}`;
-                    console.log("ID: " + correctId);
-                }
-            } else if (url.includes("youtu.be")) {
-                const vidID = url.split("youtu.be\/")[1];
-                embedURL = `https://www.youtube.com/embed/${vidID}`
-                console.log("ID: " + vidID);
-            }
-            return embedURL;
-        }
+        <!-- Dropdown for size filter -->
+        <div class="dropdown-container">
+            <label for="size">Maat van de cymbaal:</label>
+            <select id="size">
+                <option value="0">Selecteer maat</option>
+                <option value="14">14"</option>
+                <option value="15">15"</option>
+                <option value="16">16"</option>
+                <option value="17">17"</option>
+                <option value="18">18"</option>
+                <option value="19">19"</option>
+                <option value="20">20"</option>
+                <option value="21">21"</option>
+                <option value="22">22"</option>
+                <option value="23">23"</option>
+                <option value="24">24"</option>
+            </select>
+        </div>
+        <br/>
+        <!-- Filter button -->
+        <div class="cta-container">
+            <button id="filterBtn" class="cta-button">
+                <div class="cta-icon"></div>
+                <span class="cta-text">Zoek</span>
+            </button>
+        </div>
 
-        filterBtn.addEventListener('click', () => {
-            // Get filter values from sliders
-            const brightness = parseInt(document.getElementById('brightness').value);
-            const dryness = parseInt(document.getElementById('dryness').value);
-            const definition = parseInt(document.getElementById('definition').value);
-            const sustain = parseInt(document.getElementById('sustain').value);
-            const thickness = parseInt(document.getElementById('thickness').value);
-            const bellWidth = parseInt(document.getElementById('bellWidth').value);
-            const complexity = parseInt(document.getElementById('complexity').value);
 
-            const holes = document.getElementById('holes').checked ? "ja" : "nee";
-            const effect = document.getElementById('effect').checked ? "ja" : "nee";
-            const ride = document.getElementById('ride').checked ? "ja" : "nee";
-            const size = document.getElementById('size').value;
+        <!-- Results container -->
+        <div class="result_card" id="results"></div>
+    </div>
 
-            // Prepare filter object
-            const filters = {
-                brightness,
-                dryness,
-                definition,
-                sustain,
-                thickness,
-                bellWidth,
-                complexity,
-                holes,
-                effect,
-                ride,
-                size
-            };
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const toggleFiltersBtn = document.getElementById('toggleFiltersBtn');
+            const slidersDiv = document.getElementById('sliders');
+            const filterBtn = document.getElementById('filterBtn');
+            const resultsDiv = document.getElementById('results');
 
-            const filteredData = applyFilters(filters, cymbalData);
+            // toggleFiltersBtn.addEventListener('click', () => {
+            //     if (slidersDiv.style.display === 'none') {
+            //         slidersDiv.style.display = 'block';
+            //         toggleFiltersBtn.textContent = 'Verberg Filters';
+            //     } else {
+            //         slidersDiv.style.display = 'none';
+            //         toggleFiltersBtn.textContent = 'Toon Filters';
+            //     }
+            // });
 
-            // Display filtered data
-            resultsDiv.innerHTML = "";
-            filteredData.forEach(item => {
-                const itemDiv = document.createElement('div');
-                itemDiv.className = 'result-item';
+            let cymbalData = [];
 
-                let matenArray = [];
-                if (item["13"] === "x") {
-                    matenArray.push("13");
-                }
-                if (item["14"] === "x") {
-                    matenArray.push("14");
-                }
-                if (item["15"] === "x") {
-                    matenArray.push("15");
-                }
-                if (item["16"] === "x") {
-                    matenArray.push("16");
-                }
-                if (item["17"] === "x") {
-                    matenArray.push("17");
-                }
-                if (item["18"] === "x") {
-                    matenArray.push("18");
-                }
-                if (item["19"] === "x") {
-                    matenArray.push("19");
-                }
-                if (item["20"] === "x") {
-                    matenArray.push("20");
-                }
-                if (item["21"] === "x") {
-                    matenArray.push("21");
-                }
-                if (item["22"] === "x") {
-                    matenArray.push("22");
-                }
-                if (item["23"] === "x") {
-                    matenArray.push("23");
-                }
-                if (item["24"] === "x") {
-                    matenArray.push("24");
-                }
-                if (item["25"] === "x") {
-                    matenArray.push("25");
-                }
-                if (item["26"] === "x") {
-                    matenArray.push("26");
-                }
+            fetch('./resources/cymbalsLatest.json')
+                .then(response => response.json())
+                .then(data => {
+                    cymbalData = data.cymbals;
+                    console.log(data.cymbals);
+                })
+                .catch(error => console.error('Error:', error));
 
-                let matenString = "";
-                if (matenArray.length > 1) {
-                    for (let i = 0; i < matenArray.length - 1; i++) {
-                        matenString += matenArray[i] + '" - ';
+            function getYouTubeEmbedURL(url) {
+                let embedURL = "";
+                if (url.includes("youtube.com")) {
+                    if (url.includes("playlist")) {
+                        const playlistId = url.split("list=")[1];
+                        embedURL = `https://www.youtube.com/embed/videoseries?list=${playlistId}`;
+                        console.log("ID: " + playlistId);
+                    } else {
+                        const videoId = url.split("v=")[1];
+                        const correctId = videoId.split("&")[0];
+                        embedURL = `https://www.youtube.com/embed/${correctId}`;
+                        console.log("ID: " + correctId);
                     }
+                } else if (url.includes("youtu.be")) {
+                    const vidID = url.split("youtu.be\/")[1];
+                    embedURL = `https://www.youtube.com/embed/${vidID}`
+                    console.log("ID: " + vidID);
                 }
-                matenString += matenArray[matenArray.length - 1] + '"';
+                return embedURL;
+            }
 
-                const embedURL = getYouTubeEmbedURL(item.Hyperlink);
-                itemDiv.innerHTML = `
-            <div style="float: left">
+            filterBtn.addEventListener('click', () => {
+                // Get filter values from sliders
+                const brightness = parseInt(document.getElementById('brightness').value);
+                const dryness = parseInt(document.getElementById('dryness').value);
+                const definition = parseInt(document.getElementById('definition').value);
+                const sustain = parseInt(document.getElementById('sustain').value);
+                const thickness = parseInt(document.getElementById('thickness').value);
+                const bellWidth = parseInt(document.getElementById('bellWidth').value);
+                //const complexity = parseInt(document.getElementById('complexity').value);
+
+                //const holes = document.getElementById('holes').checked ? "ja" : "nee";
+                const effect = document.getElementById('effect').checked ? "ja" : "nee";
+                const ride = document.getElementById('ride').checked ? "ja" : "nee";
+                const size = document.getElementById('size').value;
+
+                // Prepare filter object
+                const filters = {
+                    brightness,
+                    dryness,
+                    definition,
+                    sustain,
+                    thickness,
+                    bellWidth,
+                    //complexity,
+                    //holes,
+                    effect,
+                    ride,
+                    size
+                };
+
+                const filteredData = applyFilters(filters, cymbalData);
+
+                // Display filtered data
+                resultsDiv.innerHTML = "";
+                filteredData.forEach(item => {
+                    const itemDiv = document.createElement('div');
+                    itemDiv.className = 'result-item';
+
+                    let matenArray = [];
+                    if (item["13"] === "x") {
+                        matenArray.push("13");
+                    }
+                    if (item["14"] === "x") {
+                        matenArray.push("14");
+                    }
+                    if (item["15"] === "x") {
+                        matenArray.push("15");
+                    }
+                    if (item["16"] === "x") {
+                        matenArray.push("16");
+                    }
+                    if (item["17"] === "x") {
+                        matenArray.push("17");
+                    }
+                    if (item["18"] === "x") {
+                        matenArray.push("18");
+                    }
+                    if (item["19"] === "x") {
+                        matenArray.push("19");
+                    }
+                    if (item["20"] === "x") {
+                        matenArray.push("20");
+                    }
+                    if (item["21"] === "x") {
+                        matenArray.push("21");
+                    }
+                    if (item["22"] === "x") {
+                        matenArray.push("22");
+                    }
+                    if (item["23"] === "x") {
+                        matenArray.push("23");
+                    }
+                    if (item["24"] === "x") {
+                        matenArray.push("24");
+                    }
+                    if (item["25"] === "x") {
+                        matenArray.push("25");
+                    }
+                    if (item["26"] === "x") {
+                        matenArray.push("26");
+                    }
+
+                    let matenString = "";
+                    if (matenArray.length > 1) {
+                        for (let i = 0; i < matenArray.length - 1; i++) {
+                            matenString += matenArray[i] + '" - ';
+                        }
+                    }
+                    matenString += matenArray[matenArray.length - 1] + '"';
+
+                    const embedURL = getYouTubeEmbedURL(item.Hyperlink);
+                    itemDiv.innerHTML = `
+            <div class="results_text">
             <strong>Naam:</strong> ${item.Cymbalname}<br>
             <strong>Type:</strong> ${item.Cymbaltype}<br>
             <strong>Beschikbare maten:</strong> ${matenString} <br/>
             </div>
-            <div style="float: right">
+            <div class="result_image">
             <strong>Afbeelding:</strong> <br/> <img src="./media/${item.Cymbalname}.jpeg" alt="placeholder" width="100">
             </div>
             <br>
+            <div class="result_video">
             <iframe width="560" height="315" src="${embedURL}" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
             <p>---------------------</p>
         `;
-                resultsDiv.appendChild(itemDiv);
+                    resultsDiv.appendChild(itemDiv);
+                });
             });
+
+            function applyFilters(filters, cymbalData) {
+                const { brightness, dryness, definition, sustain, thickness, bellWidth, complexity, holes, effect, ride, size } = filters;
+
+                return cymbalData.filter(item => {
+                    const matchesBrightness = brightness === 0 || (item.Brightness !== undefined && item.Brightness >= Math.max(1, brightness - 1) && item.Brightness <= brightness + 1);
+                    const matchesDryness = dryness === 0 || (item.Dryness !== undefined && item.Dryness >= Math.max(1, dryness - 1) && item.Dryness <= dryness + 1);
+                    const matchesDefinition = definition === 0 || (item.Definitie !== undefined && item.Definitie >= Math.max(1, definition - 1) && item.Definitie <= definition + 1);
+                    const matchesSustain = sustain === 0 || (item.Sustain !== undefined && item.Sustain >= Math.max(1, sustain - 1) && item.Sustain <= sustain + 1);
+                    const matchesThickness = thickness === 0 || (item.Dikte !== undefined && item.Dikte >= Math.max(1, thickness - 1) && item.Dikte <= thickness + 1);
+                    const matchesBellWidth = bellWidth === 0 || (item.Belbreedte !== undefined && item.Belbreedte >= Math.max(1, bellWidth - 1) && item.Belbreedte <= bellWidth + 1);
+                    //const matchesComplexity = complexity === 0 || (item.Complexiteit !== undefined && item.Complexiteit >= Math.max(1, complexity - 1) && item.Complexiteit <= complexity + 1);
+                    //const matchesHoles = holes === "nee" || (item.Gaten !== undefined && item.Gaten === 'ja');
+                    const matchesEffect = effect === "nee" || (item.Effectcymbaal !== undefined && item.Effectcymbaal === 'ja');
+                    const matchesRide = ride === "nee" || (item.Cymbaltype !== undefined && item.Cymbaltype === 'Ride');
+                    const matchesSize = item.hasOwnProperty(size) || size === "0";
+
+                    return matchesBrightness && matchesDryness && matchesDefinition &&
+                        matchesSustain && matchesThickness && matchesBellWidth
+                        // && matchesHoles
+                        // && matchesComplexity
+                        && matchesEffect && matchesSize && matchesRide;
+                });
+            }
         });
 
-        function applyFilters(filters, cymbalData) {
-            const { brightness, dryness, definition, sustain, thickness, bellWidth, complexity, holes, effect, ride, size } = filters;
-
-            return cymbalData.filter(item => {
-                const matchesBrightness = brightness === 0 || (item.Brightness !== undefined && item.Brightness >= Math.max(1, brightness - 1) && item.Brightness <= brightness + 1);
-                const matchesDryness = dryness === 0 || (item.Dryness !== undefined && item.Dryness >= Math.max(1, dryness - 1) && item.Dryness <= dryness + 1);
-                const matchesDefinition = definition === 0 || (item.Definitie !== undefined && item.Definitie >= Math.max(1, definition - 1) && item.Definitie <= definition + 1);
-                const matchesSustain = sustain === 0 || (item.Sustain !== undefined && item.Sustain >= Math.max(1, sustain - 1) && item.Sustain <= sustain + 1);
-                const matchesThickness = thickness === 0 || (item.Dikte !== undefined && item.Dikte >= Math.max(1, thickness - 1) && item.Dikte <= thickness + 1);
-                const matchesBellWidth = bellWidth === 0 || (item.Belbreedte !== undefined && item.Belbreedte >= Math.max(1, bellWidth - 1) && item.Belbreedte <= bellWidth + 1);
-                const matchesComplexity = complexity === 0 || (item.Complexiteit !== undefined && item.Complexiteit >= Math.max(1, complexity - 1) && item.Complexiteit <= complexity + 1);
-                const matchesHoles = holes === "nee" || (item.Gaten !== undefined && item.Gaten === 'ja');
-                const matchesEffect = effect === "nee" || (item.Effectcymbaal !== undefined && item.Effectcymbaal === 'ja');
-                const matchesRide = ride === "nee" || (item.Cymbaltype !== undefined && item.Cymbaltype === 'Ride');
-                const matchesSize = item.hasOwnProperty(size) || size === "0";
-
-                return matchesBrightness && matchesDryness && matchesDefinition &&
-                    matchesSustain && matchesThickness && matchesBellWidth &&
-                    matchesComplexity && matchesHoles && matchesEffect && matchesSize && matchesRide;
-            });
-        }
-    });
-</script>
+    </script>
+</div>
 </body>
 </html>
