@@ -138,6 +138,7 @@ p{
 
 #goToPageBtn {
     width: 100%;
+    font-size: 200%;
 }
 
 #infoDiv, #filterDiv {
@@ -200,6 +201,8 @@ p{
     align-items: center;
     padding: 12px 24px;
     gap: 12px;
+    height: 100%;
+    width: 100%;
 
 
     background: #C39963;
@@ -210,6 +213,9 @@ p{
 a {
     display: inline-block;
     text-decoration: none;
+
+    height: 100%;
+    width: 100%;
 }
 
 .checkbox-group {
