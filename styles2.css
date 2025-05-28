@@ -20,7 +20,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 112px 64px;
+    padding: 11px 64px;
     isolation: isolate;
 
     background: linear-gradient(180deg, #000000 56.56%, #262626 97.43%);
